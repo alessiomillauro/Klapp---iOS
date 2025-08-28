@@ -21,6 +21,7 @@ struct MovieDetailView: View {
     @State private var isMovieFavorite = false
     @State private var selectedTrailer: VideoResult? = nil
     @State private var showTrailer = false
+    @State private var showingFullCreditsView = false
     
     @Environment(\.dismiss) private var dismiss
     
@@ -51,7 +52,8 @@ struct MovieDetailView: View {
                 
                 if let credits = detail.credits,
                    !(credits.cast.isEmpty && credits.crew.isEmpty) {
-                    MovieCreditsSection(credits: credits, onViewAll: { print("TODO: Visualizzare tutti i crediti")})
+                    MovieCreditsSection(credits: credits, onViewAll: { showingFullCreditsView = true}
+                    )
                 }
                 
                 Spacer(minLength: 32)
@@ -93,6 +95,9 @@ struct MovieDetailView: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: $showingFullCreditsView) {
+            FullCreditsView(credits: viewModel.detailMovie?.credits ?? nil, isPresented: $showingFullCreditsView)
         }
     }
 }
@@ -336,45 +341,6 @@ struct MovieVideoSection:View {
                 }
             }
         }
-    }
-}
-
-struct MovieCreditsSection: View {
-    let credits: MovieCredits
-    let onViewAll:() -> Void
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Text("Cast & Crew")
-                    .font(.headline)
-                    .bold()
-                Spacer()
-                Button("Vedi tutto", action: onViewAll)
-                    .font(.subheadline)
-            }
-            
-            VStack(spacing: 16) {
-                // Prima riga → max 3
-                HStack(spacing: 12) {
-                    ForEach(credits.cast.prefix(3)) { credit in
-                        CreditItemView(credit: credit)
-                    }
-                }
-                
-                // Seconda riga → successivi 2
-                HStack(spacing: 12) {
-                    ForEach(credits.cast.dropFirst(3).prefix(2)) { credit in
-                        CreditItemView(credit: credit)
-                    }
-                }
-            }
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color(.systemGray6)).shadow(color: .black.opacity(0.1),radius: 4, x: 0, y: 2))
-            
-        }
-        .padding(.horizontal)
     }
 }
 
