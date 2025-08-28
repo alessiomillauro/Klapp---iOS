@@ -7,18 +7,19 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+var imageLoader = ImageLoader()
 
-#Preview {
-    ContentView()
+class ImageLoader {
+    var images : [Image] = []
+    
+    init() {
+        loadData()
+    }
+    
+    func loadData() {
+        
+        for _ in 0..<10 {
+            images.append( Image(systemName: "circle.fill"))
+        }
+    }
 }
