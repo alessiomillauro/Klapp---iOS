@@ -21,6 +21,7 @@ struct MovieDetailView: View {
     @State private var isMovieFavorite = false
     @State private var selectedTrailer: VideoResult? = nil
     @State private var showTrailer = false
+    @State private var showingFullCreditsView = false
     
     @Environment(\.dismiss) private var dismiss
     
@@ -45,6 +46,14 @@ struct MovieDetailView: View {
                 
                 if let trailers = detail.videos?.results.filter({$0.type == "Trailer" && $0.site == "YouTube"}), !trailers.isEmpty {
                     MovieVideoSection(trailers: trailers, selectedTrailer: $selectedTrailer, showTrailer: $showTrailer)
+                }
+                
+                Spacer(minLength: 32)
+                
+                if let credits = detail.credits,
+                   !(credits.cast.isEmpty && credits.crew.isEmpty) {
+                    MovieCreditsSection(credits: credits, onViewAll: { showingFullCreditsView = true}
+                    )
                 }
                 
                 Spacer(minLength: 32)
@@ -86,6 +95,9 @@ struct MovieDetailView: View {
                     }
                 }
             }
+        }
+        .sheet(isPresented: $showingFullCreditsView) {
+            FullCreditsView(credits: viewModel.detailMovie?.credits ?? nil, isPresented: $showingFullCreditsView)
         }
     }
 }
@@ -332,6 +344,65 @@ struct MovieVideoSection:View {
     }
 }
 
+struct CreditItemView: View {
+    let credit: MovieCast
+    
+    var body: some View {
+        VStack(spacing: 8) {
+            // Immagine circolare
+            if let path = credit.profilePath,
+               let url = URL(string: "https://image.tmdb.org/t/p/w185\(path)") {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                            .frame(width: 60, height: 60)
+                            .background(Color.gray.opacity(0.3))
+                            .clipShape(Circle())
+                    case .success(let image):
+                        image.resizable()
+                            .scaledToFill()
+                            .frame(width: 60, height: 60)
+                            .clipShape(Circle())
+                    case .failure:
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(.gray)
+                            .frame(width: 60, height: 60)
+                            .background(Color.gray.opacity(0.3))
+                            .clipShape(Circle())
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+            } else {
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 40, height: 40)
+                    .foregroundColor(.gray)
+                    .frame(width: 60, height: 60)
+                    .background(Color.gray.opacity(0.3))
+                    .clipShape(Circle())
+            }
+            
+            // Nome + ruolo
+            Text(credit.name)
+                .font(.footnote)
+                .bold()
+                .lineLimit(1)
+            Text(credit.character)
+                .font(.caption2)
+                .foregroundColor(.secondary)
+                .lineLimit(1)
+        }
+        .frame(width: 80)
+    }
+}
+
+
 // --- MOVIE IMAGES component ---//
 struct MovieImagesSection: View {
     let images: MovieImagesResponse?
@@ -380,9 +451,9 @@ struct MovieImagesSection: View {
                                 .padding(.horizontal)
                             }
                         }
+                        Spacer(minLength: 16)
                     }
                     
-                    //
                     
                     if let backdrops = images?.backdrops, !backdrops.isEmpty {
                         VStack(alignment: .center, spacing: 12) {
@@ -420,7 +491,10 @@ struct MovieImagesSection: View {
                                 .padding(.horizontal)
                             }
                         }
+                        Spacer(minLength: 16)
                     }
+                    
+                    
                     
                     if let posters = images?.posters, !posters.isEmpty {
                         VStack(alignment: .center, spacing: 12) {
