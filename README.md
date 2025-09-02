@@ -3,7 +3,17 @@ It allows users to explore the latest movies currently in theaters, upcoming rel
 
 The app integrates with The Movie Database (TMDB) API for movie data and uses Firebase for authentication and favorites management.
 
+* Language: Swift
 
+* Framework: SwiftUI
+
+* Architecture: MVVM (Model-View-ViewModel)
+
+* Networking: URLSession (with async/await)
+
+* APIs: The Movie Database (TMDB)
+
+* Backend Services: Firebase (Authentication + Firestore Database)
 
 
 ✨ Features
@@ -24,34 +34,20 @@ The app integrates with The Movie Database (TMDB) API for movie data and uses Fi
 - 🛠️ Tech Stack
 
 
-
-
-Language: Swift
-
-Framework: SwiftUI
-
-Architecture: MVVM (Model-View-ViewModel)
-
-Networking: URLSession (with async/await)
-
-APIs: The Movie Database (TMDB)
-
-Backend Services: Firebase (Authentication + Firestore Database)
-
-
+___
 
 
 🚀 Getting Started
 --
-Prerequisites
+___Prerequisites___
 
-Xcode 15 or later
+* Xcode 15 or later
 
-iOS 17+ (deployment target adjustable if needed)
+* iOS 17+ (deployment target adjustable if needed)
 
-A valid TMDB API Key
+* A valid TMDB API Key
 
-A configured Firebase project (Firestore + Authentication enabled)
+* A configured Firebase project (Firestore + Authentication enabled)
 
 
 
@@ -59,23 +55,22 @@ A configured Firebase project (Firestore + Authentication enabled)
 Installation
 --
 
-Clone the repository:
+___Clone the repository:___
 
-git clone https://github.com/yourusername/MovieApp.git
-cd MovieApp
+>*git clone https://github.com/yourusername/MovieApp.git*
+>*cd MovieApp*
 
 
-Install dependencies (if using Swift Package Manager / CocoaPods).
+___Install dependencies (if using Swift Package Manager / CocoaPods).___
 
-Add your TMDB API Key in the Constants.swift file.
+___Add your TMDB API Key in the Constants.swift file.___
 
-Configure Firebase:
+___Configure Firebase:___
 
-Download your GoogleService-Info.plist from Firebase Console.
+>1) Download your GoogleService-Info.plist from Firebase Console.
+>2) Add it to your Xcode project.
 
-Add it to your Xcode project.
-
-Run the project on simulator or physical device.
+___Run the project on simulator or physical device.___
 
 
 
@@ -91,15 +86,13 @@ Add screenshots or GIFs of your app here (list, details, favorites, login).
 📌 Roadmap
 --
 
- Add search functionality for movies
+ * Offline persistence with CoreData
 
- Offline persistence with CoreData
+ * Dark Mode support
 
- Dark Mode support
+ * Unit & UI tests
 
- Unit & UI tests
-
- Localization (multi-language support)
+ * Localization (multi-language support)
 
 
 
@@ -116,18 +109,3 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 This project is licensed under the MIT License – see the LICENSE
  file for details.
-
-
-
-
-👉 Suggestion:
---
-Other things you could add:
-
-Architecture diagram (MVVM flow with SwiftUI + Firebase + TMDB).
-
-Folder structure explanation.
-
-Known issues / limitations (e.g., pagination, rate limits with TMDB).
-
-Acknowledgments (The Movie Database, Firebase, etc.).
