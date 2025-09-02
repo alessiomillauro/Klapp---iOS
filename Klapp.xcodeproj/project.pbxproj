@@ -10,6 +10,7 @@
 		0F72A0072E54E14A00AE7E58 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0F72A0062E54E14A00AE7E58 /* FirebaseAuth */; };
 		0F72A0092E54E14A00AE7E58 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0F72A0082E54E14A00AE7E58 /* FirebaseFirestore */; };
 		0F72A00B2E54E14A00AE7E58 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0F72A00A2E54E14A00AE7E58 /* FirebaseStorage */; };
+		0F841C3A2E65EA5B008182B1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F841C382E65EA5B008182B1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,8 @@
 		0F2134C52E538807007AFC2B /* Klapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Klapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2134D22E538809007AFC2B /* KlappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2134DC2E538809007AFC2B /* KlappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F841C392E65EA5B008182B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0F841C3B2E65EA97008182B1 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -84,6 +87,7 @@
 		0F2134BC2E538807007AFC2B = {
 			isa = PBXGroup;
 			children = (
+				0F841C382E65EA5B008182B1 /* Localizable.strings */,
 				0F2134C72E538807007AFC2B /* Klapp */,
 				0F2134D52E538809007AFC2B /* KlappTests */,
 				0F2134DF2E538809007AFC2B /* KlappUITests */,
@@ -204,6 +208,7 @@
 			knownRegions = (
 				en,
 				Base,
+				it,
 			);
 			mainGroup = 0F2134BC2E538807007AFC2B;
 			minimizedProjectReferenceProxies = 1;
@@ -227,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F841C3A2E65EA5B008182B1 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +288,18 @@
 			targetProxy = 0F2134DD2E538809007AFC2B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0F841C382E65EA5B008182B1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F841C392E65EA5B008182B1 /* en */,
+				0F841C3B2E65EA97008182B1 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0F2134E42E538809007AFC2B /* Debug */ = {
