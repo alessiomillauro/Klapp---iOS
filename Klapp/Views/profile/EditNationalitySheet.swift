@@ -16,12 +16,12 @@ struct EditNationalitySheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section(header: Text("Modifica Nazionalità")) {
+                Section(header: Text("update_nationality")) {
                     TextField("Nazionalità", text: $currentNationality)
                         .textInputAutocapitalization(.words)
                 }
             }
-            .navigationTitle("Modifica Nazionalità")
+            .navigationTitle("update_nationality")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
