@@ -32,7 +32,7 @@ struct DashboardView: View {
                         } label: {
                             HStack{
                                 Image(systemName: "magnifyingglass").foregroundColor(.gray)
-                                Text("Cerca un film...").foregroundColor(.gray)
+                                Text("search_enter").foregroundColor(.gray)
                                 Spacer()
                             }
                             .padding(10)
@@ -47,7 +47,7 @@ struct DashboardView: View {
                         // --- Now Playing ---
                         MovieSection(
                             viewModel: viewModel,
-                            title: "Now Playing",
+                            title: NSLocalizedString("now_playing", comment: "Now Playing Section Title"),
                             movies: viewModel.nowPlayingMovies,
                             namespace: animationNamespace,
                             onSelect: { movie in
@@ -65,7 +65,7 @@ struct DashboardView: View {
                         
                         MovieSection(
                             viewModel: viewModel,
-                            title: "Upcoming",
+                            title: NSLocalizedString("upcoming", comment: "Now Playing Section Title"),
                             movies: viewModel.upcomingMovies,
                             namespace: animationNamespace,
                             onSelect: {movie in
@@ -80,7 +80,7 @@ struct DashboardView: View {
                         }
                     }
                 }
-                .navigationTitle(Text("Home"))
+                .navigationTitle(Text("home"))
                 .navigationBarTitleDisplayMode(.automatic)
                 .sheet(isPresented: $showingSearch) {
                     SearchView(isPresented: $showingSearch, userManager: viewModel.userManager)
@@ -255,20 +255,3 @@ struct DashboardView_Previews: PreviewProvider {
         }
     }
 }
-
-
-/**
- var body: some View {
-     NavigationView {
-       VStack{
-         todayView()
-         categoryList()
-         .padding(5)
-         Spacer()
-       }
-     }
-     .navigationBarTitle("")
-     .navigationBarHidden(true)
-   }
- }
- */

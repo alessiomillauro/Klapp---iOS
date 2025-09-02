@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  Klapp
+
+  Created by Alessio Millauro on 01/09/25.
+  
+*/
+"home" = "Home";
+"profile" = "Profilo";
+"cinema" = "Cinema";
+"now_playing" = "Ora al cinema";
+"upcoming" = "In arrivo";
+"search_enter" = "Cerca un film...";
+"search_title" = "Cerca";
+"search_placeholder" = "Titolo";
+"searched_recent_title" = "Ricerche recenti";
+"searched_result_title"="Risultati";
+"close" = "Chiudi";
+"logout" = "Esci";
+"no_data_available"="Nessun dato disponibile";
+"rating"="Valutazione";
+"overview"="Trama";
+"trailer"="Trailer";
+"media"="Media";
+"similar_movies"="Film Simili";
+"logos"="Loghi";
+"gallery"="Galleria";
+"poster"="Poster";
+"update_nationality"="Modifica Nazionalità";

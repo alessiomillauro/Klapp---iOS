@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Klapp
+
+  Created by Alessio Millauro on 01/09/25.
+  
+*/
+"home" = "Home";
+"profile" = "Profile";
+"cinema" = "Cinema";
+"now_playing" = "Now playing";
+"upcoming" = "Upcoming";
+"search_enter" = "Search";
+"search_title" = "Search";
+"search_placeholder" = "Title";
+"searched_recent_title" = "Recents";
+"close" = "Close";
+"logout" = "Logout";
+"no_data_available"="No data available";
+"rating"="Rating";
+"overview"="Overview";
+"trailer"="Trailer";
+"media"="Media";
+"similar_movies"="Similar movies";
+"logos"="Logos";
+"gallery"="Gallery";
+"poster"="Poster";
+"update_nationality"="Update nationality";

@@ -194,7 +194,7 @@ struct MovieRatingView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Valutazione")
+            Text("rating")
                 .font(.headline)
                 .bold()
             
@@ -283,11 +283,11 @@ struct MovieOverviewView:View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             // Overview / descrizione
-            Text("Trama")
+            Text("overview")
                 .font(.headline)
                 .bold()
             
-            Text(movie.overview ?? "N/A")
+            Text(movie.overview ?? "no_data_available")
                 .font(.body)
                 .foregroundColor(.primary)
                 .lineSpacing(4)
@@ -306,7 +306,7 @@ struct MovieVideoSection:View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Trailer").font(.headline).bold().padding(.horizontal)
+            Text("trailer").font(.headline).bold().padding(.horizontal)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
@@ -418,7 +418,7 @@ struct MovieImagesSection: View {
                     
                     if let logos = images?.logos, !logos.isEmpty {
                         VStack(alignment: .center, spacing: 12) {
-                            Text("Loghi").font(.title2).bold().padding(.horizontal)
+                            Text("logos").font(.title2).bold().padding(.horizontal)
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 16) {
@@ -457,7 +457,7 @@ struct MovieImagesSection: View {
                     
                     if let backdrops = images?.backdrops, !backdrops.isEmpty {
                         VStack(alignment: .center, spacing: 12) {
-                            Text("Galleria").font(.title2).bold().padding(.horizontal)
+                            Text("gallery").font(.title2).bold().padding(.horizontal)
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 16) {
@@ -498,7 +498,7 @@ struct MovieImagesSection: View {
                     
                     if let posters = images?.posters, !posters.isEmpty {
                         VStack(alignment: .center, spacing: 12) {
-                            Text("Poster").font(.title2).bold().padding(.horizontal)
+                            Text("poster").font(.title2).bold().padding(.horizontal)
                             
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack(spacing: 16) {
@@ -536,7 +536,7 @@ struct MovieImagesSection: View {
                 .padding(.bottom, 20)
             } label: {
                 HStack {
-                    Label("Media", systemImage: "photo.on.rectangle.angled")
+                    Label("media", systemImage: "photo.on.rectangle.angled")
                         .font(.headline)
                         .foregroundColor(.primary)
                     
@@ -579,7 +579,7 @@ struct MovieSimilarSection: View {
         VStack(alignment: .leading, spacing: 24) {
             if let similarList = similar, !similarList.isEmpty {
                 VStack(alignment: .center, spacing: 12) {
-                    Text("Film simili")
+                    Text("similar_movies")
                         .font(.title2)
                         .bold()
                         .padding(.horizontal)
@@ -616,24 +616,6 @@ struct MovieSimilarSection: View {
                 }
             }
         }
-    }
-}
-
-struct PreferedButton: View {
-    var body: some View {
-        Button(action: {
-            print("Aggiungi ai preferiti")
-        }) {
-            Text("Aggiungi ai preferiti")
-                .bold()
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(12)
-        }
-        .padding(.horizontal)
-        .padding(.bottom, 32)
     }
 }
 
